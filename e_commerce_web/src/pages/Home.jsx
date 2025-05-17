@@ -2,7 +2,8 @@ import React from 'react'
 import Asidebar from '../components/UI/Asidebar'
 import Mininav from '../components/UI/Mininav'
 import SimpleButton from '../components/common/Buttons/simplebutton'
-import Paymentcard from '../components/UI/Paymentcard'
+import H2 from '../components/common/h2'
+import Paragraph from '../components/common/Paragraph'
 import Largecard from '../components/UI/Largecard'
 import Smallcard from '../components/UI/Smallcard'
 
@@ -51,6 +52,11 @@ const largeCardData3 = [
     { url: 'src/assets/images/cuptava.jpg',  name: 'Get your everyday needs here with us',    text: 'Sine the morning' },
 ]
 
+const companiesData = [
+    {url: 'src/assets/images/profile.jpg', name: 'Machic', text: 'Featured', ratting: '⭐⭐⭐⭐', info: 'Good quality product can only be found in good stores'},
+    {url: 'src/assets/images/profile.jpg', name: 'Blonwe', text: 'Featured', ratting: '⭐⭐⭐⭐', info: 'All kinds of grocery products are available in our store.'},
+    {url: 'src/assets/images/profile.jpg', name: 'Bacola', text: 'Featured', ratting: '⭐⭐⭐⭐', info: 'Our work can definitely support the local economy.'},
+]
   return (
     <>
     {/* Hero Section */}
@@ -74,7 +80,13 @@ const largeCardData3 = [
     <div className='py-4 flex justify-between items-center border-b border-[#E5E7EB]'>
         {paymentData.map((item, idx) => {
             return (
-                <Paymentcard key={idx} product={item} />
+                <div key={idx} className='flex w-[30%]'>
+                    <img className='mt-8' src={item.url} alt="" />
+                    <div className='pl-4'>
+                        <h3 className='font-bold'>{item.name}</h3>
+                        <Paragraph customClass={'leading-4'} text={item.text} />
+                    </div>
+                </div>
             )
         })}
     </div>
@@ -90,8 +102,8 @@ const largeCardData3 = [
 
     {/* New Arrivals */}
     <div>
-        <h2 className='text-[18px] font-bold'>New Arrivals <span className='pl-4 font-light text-[13px] text-[#6b7280]'>Dont miss this opportunity at a special discount just for this week.</span></h2>
-        <div className=' py-4 grid grid-cols-6 rounded-lg'>
+        <H2 title={'New Arrivals'} subtitle={'Dont miss this opportunity at a special discount just for this week.'} />
+        <div className=' py-4 grid grid-cols-6 rounded-lg overflow-hidden'>
             {newArrivalData.map((item, idx) => {
                 return (
                    <Smallcard key={idx} product={item} customClass={'flex-col'} />
@@ -111,7 +123,7 @@ const largeCardData3 = [
 
     {/* Featured products */}
     <div>
-        <h2 className='text-[18px] font-bold'>Featured Products<span className='pl-4 font-light text-[13px] text-[#6b7280]'>Do not miss the current offers until the end of March.</span></h2>
+        <H2 title={'Featured Products'} subtitle={'Some of the new products arriving this weeks'} />
         <div className='py-4 grid grid-cols-3 rounded-lg'>
             {featuredProducts.map((item, idx) => {
                 return (
@@ -130,11 +142,25 @@ const largeCardData3 = [
         })}
     </div>    
 
-    {/* large and small both card */}
-    <div>
-        <h2 className='text-[18px] font-bold'>Best Sellers<span className='pl-4 font-light text-[13px] text-[#6b7280]'>Some of the new products arriving this weeks</span></h2>
-        <div className='py-4 flex flex-wrap rounded-lg'>
-            
+    {/* popular companies */}
+    <div className='py-8'>
+        <H2 title={'Popular Companies'} subtitle={'Some of the new products arriving this weeks'} />
+        <div className='py-4 grid grid-cols-3 rounded-lg overflow-hidden'>
+            {companiesData.map((item, idx) => {
+                return (
+                    <div key={idx} className='p-4 border border-[#E5E7EB]'>
+                        <div className='pb-4 flex gap-4 border-b border-[#E5E7EB]'>
+                            <img src={item.url} alt="" />
+                            <div>
+                                <h3 className='font-bold'>{item.name}</h3>
+                                <Paragraph customClass={'pb-2'} text={item.text} />
+                                <p className='text-[12px]'>{item.ratting}</p>
+                            </div>
+                        </div>
+                        <p className='py-6 text-[12px] font-semibold'>{item.info}</p>
+                    </div>
+                );
+            })}
         </div> 
     </div>
 
