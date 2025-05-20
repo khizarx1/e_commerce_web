@@ -12,7 +12,7 @@ import BLog from './BLog'
 import Contact from './Contact'
 import TrandingProducts from './TrendingProducts'
 import AlmostFinished from './AlmostFinished'
-// import Footer from '../components/Footer'
+import Footer from '../components/Footer'
 
 import Nopage from './NoPage'
 
@@ -36,7 +36,7 @@ function customRoutes() {
                     <Route path='*' element={<Nopage />} />          
                 </Routes>
             </main>
-        {/* <Footer /> */}
+        <Footer />
     </BrowserRouter>
   )
 }

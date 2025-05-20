@@ -58,7 +58,7 @@ const companiesData = [
     {url: 'src/assets/images/profile.jpg', name: 'Bacola', text: 'Featured', ratting: '⭐⭐⭐⭐', info: 'Our work can definitely support the local economy.'},
 ]
   return (
-    <>
+    <div className='w-[85%] mx-auto'>
     {/* Hero Section */}
     <div className='flex'>
         <Asidebar />
@@ -164,7 +164,7 @@ const companiesData = [
         </div> 
     </div>
 
-    </>
+    </div>
   )
 }
 

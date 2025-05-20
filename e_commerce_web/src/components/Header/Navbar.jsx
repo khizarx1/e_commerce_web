@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 function Navbar() {
   return (
-    <div className='py-6 flex items-center gap-4'>
+    <nav className='w-[85%] mx-auto py-6 flex items-center justify-between'>
         {/* logo */}
         <img src="src/assets/logo/logo.jpg" alt="" />
         
@@ -16,8 +16,8 @@ function Navbar() {
         </div>
 
         {/* search */}
-        <div className='py-2 px-4 flex flex-1 bg-slate-100 rounded-lg'>
-            <input className='flex-1 outline-0 truncate' type="search" placeholder='Search for products,cetagories or brands'/>
+        <div className='py-2 px-4 bg-slate-100 rounded-lg'>
+            <input className='w-[45vw] outline-0 truncate' type="search" placeholder='Search for products,cetagories or brands'/>
             <button className='cursor-pointer'><i className="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
@@ -35,7 +35,7 @@ function Navbar() {
         <img src="src/assets/icon/cart.jpg" alt="" />
 
 
-    </div>
+    </nav>
   )
 }
 
