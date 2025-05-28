@@ -19,7 +19,7 @@ const rightLinks = [
   ];
 
   return (
-    <div className='py-3 pl-6 font-semibold flex items-center justify-between border-b border-[#E5E7EB]'>
+    <div className='py-3 pl-6 font-semibold flex items-center justify-between border-y border-[#E5E7EB]'>
         {/* left */}
         <div className='flex items-center gap-4'>
             {linkData.map((item, idx) => {

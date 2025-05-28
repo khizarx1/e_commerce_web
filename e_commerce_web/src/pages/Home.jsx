@@ -57,6 +57,20 @@ const companiesData = [
     {url: 'src/assets/images/profile.jpg', name: 'Blonwe', text: 'Featured', ratting: '⭐⭐⭐⭐', info: 'All kinds of grocery products are available in our store.'},
     {url: 'src/assets/images/profile.jpg', name: 'Bacola', text: 'Featured', ratting: '⭐⭐⭐⭐', info: 'Our work can definitely support the local economy.'},
 ]
+
+const bestSellers = [
+    {id: '1', url: 'src/assets/images/newarrival.jpg', name: '100 Percent Apple Juice – 64 fl oz Bottle', price: '$0.50' },
+    {id: '2', url: 'src/assets/images/newarrival.jpg', name: '100 Percent Apple Juice – 64 fl oz Bottle', price: '$0.50' },
+    {id: '3', url: 'src/assets/images/grocery.jpg', name: 'We are always here to help you with your grocery', text: 'A different kind of grocery store' },
+    {id: '4', url: 'src/assets/images/newarrival.jpg', name: '100 Percent Apple Juice – 64 fl oz Bottle', price: '$0.50' },
+    {id: '5', url: 'src/assets/images/newarrival.jpg', name: '100 Percent Apple Juice – 64 fl oz Bottle', price: '$0.50' },
+    {id: '6', url: 'src/assets/images/newarrival.jpg', name: '100 Percent Apple Juice – 64 fl oz Bottle', price: '$0.50' },
+    {id: '7', url: 'src/assets/images/newarrival.jpg', name: '100 Percent Apple Juice – 64 fl oz Bottle', price: '$0.50' },
+    {id: '8', url: 'src/assets/images/caramel.jpg', name: 'With your favourite food,We will make your mood', text: 'A different kind of grocery store' },
+    {id: '9', url: 'src/assets/images/newarrival.jpg', name: '100 Percent Apple Juice – 64 fl oz Bottle', price: '$0.50' },
+    {id: '10', url: 'src/assets/images/newarrival.jpg', name: '100 Percent Apple Juice – 64 fl oz Bottle', price: '$0.50' },
+]
+
   return (
     <div className='w-[85%] mx-auto'>
     {/* Hero Section */}
@@ -122,24 +136,35 @@ const companiesData = [
     </div>
 
     {/* Featured products */}
-    <div>
+    <div className='py-4 '>
         <H2 title={'Featured Products'} subtitle={'Some of the new products arriving this weeks'} />
-        <div className='py-4 grid grid-cols-3 rounded-lg'>
+        <div className='grid grid-cols-3 rounded-lg'>
             {featuredProducts.map((item, idx) => {
                 return (
                    <Smallcard key={idx} product={item} />
                 );
             })}
         </div> 
-    </div>
-
-    {/* largecards */}
-    <div className='grid grid-cols-2 gap-4'>
+        
+        <div className='grid grid-cols-2 gap-4'>
         {largeCardData3.map((item, idx) => {
             return (
                 <Largecard key={idx} product={item} customClass={'h-[210px]'} />
             );
         })}
+        </div>
+    </div>
+
+    {/*Best sellers  */}
+    <div className='py-4'>
+        <H2 title={'Featured Products'} subtitle={'Some of the best products arriving this weeks'} />
+        <div className='flex flex-wrap rounded-lg'>
+            {bestSellers.map((item, idx) => 
+                (idx === 2 || idx === 7) ?
+                <Largecard key={idx} product={item} customClass={'w-[28%] h-[380px]'} /> :
+                <Smallcard key={idx} product={item} customClass={'w-[18%] flex-col'} />
+            )}
+        </div>
     </div>    
 
     {/* popular companies */}
