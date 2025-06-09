@@ -2,9 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 
-function Mininav() {
+function Mininav({customClass}) {
 
-const linkData = [
+const leftLinks = [
     {to: '/', name: 'Home'},
     {to: '/Shop', name: 'Shop'},
     {to: '/FruitandVeg', name: 'Fruits and Vegitables'},
@@ -19,10 +19,10 @@ const rightLinks = [
   ];
 
   return (
-    <div className='py-3 pl-6 font-semibold flex items-center justify-between border-y border-[#E5E7EB]'>
+    <div className={`py-3 font-semibold flex items-center justify-between border-y border-[#E5E7EB] ${customClass}`}>
         {/* left */}
         <div className='flex items-center gap-4'>
-            {linkData.map((item, idx) => {
+            {leftLinks.map((item, idx) => {
             return (
                 <Link key={idx} to={item.to} className=' text-[14px] hover:underline cursor-pointer hover:text-[#634C9F]'>{item.name}</Link>                    
             );

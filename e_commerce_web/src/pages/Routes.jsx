@@ -1,9 +1,13 @@
 import React from 'react'
-import {BrowserRouter,Routes, Route} from 'react-router-dom'
-// Navbar
-import Login from './Auth/Login'
-// Mininav
+import { Routes, Route, useLocation } from 'react-router-dom'
+
+// Components
 import Header from '../components/Header'
+import Mininav from '../components/UI/Mininav'
+import Footer from '../components/Footer'
+
+// Pages
+import Login from './Auth/Login'
 import Home from './Home'
 import Shop from './Shop'
 import FruitandVeg from './FruitandVeg'
@@ -13,17 +17,20 @@ import Contact from './Contact'
 import TrandingProducts from './TrendingProducts'
 import AlmostFinished from './AlmostFinished'
 import Cart from './Cart'
-import Footer from '../components/Footer'
+import Productdetail from './Productdetail'
+import Nopage from './Nopage'
 
-import Nopage from './NoPage'
+function CustomRoutes() {
 
-function customRoutes() {
+const location = useLocation();
+const isHomepage = location.pathname === '/';    
 
 
   return (
-    <BrowserRouter>
+    <>
         <Header />
             <main>
+        {!isHomepage && <Mininav customClass={'w-[85%] mx-auto'} />}
                 <Routes>
                     <Route path='/' element={<Home />} />          
                     <Route path='/Shop' element={<Shop />} />          
@@ -33,17 +40,18 @@ function customRoutes() {
                     <Route path='/Contact' element={<Contact />} />          
                     <Route path='/TrandingProducts' element={<TrandingProducts />} />          
                     <Route path='/AlmostFinished' element={<AlmostFinished />} />
+                    <Route path='/Cart' element={<Cart />} />
                     {/* Auth */}
                     <Route path='/Login' element={<Login />} />
-                    {/* Add to cart */}
-                    <Route path='/Cart' element={<Cart />} />
+                    {/* Product Detail */}
+                    <Route path='/Productdetail/:id' element={<Productdetail />} />
                     
                     <Route path='*' element={<Nopage />} />          
                 </Routes>
             </main>
         <Footer />
-    </BrowserRouter>
+    </>
   )
 }
 
-export default customRoutes
+export default CustomRoutes
