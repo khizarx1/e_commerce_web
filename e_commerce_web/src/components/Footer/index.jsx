@@ -1,6 +1,6 @@
 import React from 'react'
 import Paragraph from '../common/Paragraph'
-import Button from '../common/Buttons/simplebutton'
+import Button from '../common/Buttons/Footerbtn'
 import { Link } from 'react-router-dom'
 function index() {
     const footerLinks = [
